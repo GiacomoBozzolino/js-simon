@@ -6,7 +6,7 @@
 
 
 
-#number{
+#number, .answer{
     display: flex;
     font-size: 50px;
     justify-content: space-around;
@@ -16,4 +16,6 @@
 
 .none{
     opacity: 0;
-}
+}1
+2
+3
