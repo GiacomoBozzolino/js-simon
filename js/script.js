@@ -4,14 +4,16 @@ function generateRandomNumber (min,max) {
 };
 
 // aggiungo un controllo per non avere numeri doppi
-function controlNumber (numbers){
+function controlNumber (random_number){
     let controllo = false ;
     let number;
-    while (controllo === false) {
+    while (controllo == false) {
         number = generateRandomNumber(1, 10);
         // setto la condizione per uscire dal ciclo while ( se il numero non è contenuto nell'array esco dal ciclo e genero un numero)
-        if (!numbers.includes(number));
-        controllo = true;
+        if (!random_number.includes(number)){
+            controllo = true;
+
+        };
     } 
     return number;
 };
@@ -44,19 +46,63 @@ setTimeout(question, 4000);
 function question(){
     // creo il secondo array vuoto
     let user_number = []
+    let versus = false
     for (let i=0; i<5; i++){
         let question = parseInt(prompt('Che numero hai visto?'))
         console.log(question)
         // riempio l'array con i numeri inseriti dall'utente
-        user_number.push(question)
-    }
-    console.log(random_number.length)
-    console.log(user_number)
-    
-//    creo una condizione per confrontare i due numeri
-    
+        user_number.push(question)   
+        //    creo una condizione per confrontare i due numeri
+        if(random_number.includes(user_number[i])){
+            versus = true
+                
+                console.log(`hai indovinato il numero ${user_number[i]}`)
+
+        } else {
+                console.log('non hai indovinato')
+            }
+        }
+        
+        // primo messaggio di risultato (da sistemare)
+        if (versus === true) {
+            console.log (`Hai indovinato `);
+            document.getElementById('answer').innerText= 'Hai indovinato!'
+        } else {
+            document.getElementById('answer').innerText= 'Non hai indovinato!'
+
+        }
+           
+
+        console.log(user_number)
+  
+        console.log(random_number)
+
 
 }
+
+
+
+   
+
+   
+
+    
+
+
+
+    
+    
+
+
+    
+
+ 
+
+
+
+ 
+
+
 
 
 
