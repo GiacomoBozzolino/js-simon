@@ -10,5 +10,10 @@
     display: flex;
     font-size: 50px;
     justify-content: space-around;
-    align-items: ;
+    
+}
+
+
+.none{
+    opacity: 0;
 }
