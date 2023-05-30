@@ -79,11 +79,16 @@ console.log(report)
         
 
         if (versus === true) {
-            console.log (`Hai indovinato `);
-            report.innerHTML = `Bravo! Ti sei ricordato ${final_number.length} numeri: ${numberFinder}!`
-        console.log(report)
+            if(final_number.length > 1){
+                report.innerHTML = `Bravo! Ti sei ricordato ${final_number.length} numeri: ${numberFinder}!`
+                console.log(final_number.length)
 
-            
+            }else {
+                report.innerHTML = `Bravo! Ti sei ricordato un solo numero: ${numberFinder}!`
+            }
+            // console.log (`Hai indovinato `);
+            //     console.log(report)
+  
         } else {
             report.innerHTML = 'Non ti sei ricordato nessun numero!'
             
