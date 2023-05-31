@@ -6,16 +6,15 @@ function generateRandomNumber (min,max) {
 
 // aggiungo un controllo per non avere numeri doppi
 function controlNumber (random_number){
-    let controllo = false ;
+    let controllo = false;
     let number;
-    while (controllo == false) {
+    while (controllo === false) {
         number = generateRandomNumber(1, 10);
         // setto la condizione per uscire dal ciclo while ( se il numero non è contenuto nell'array esco dal ciclo e genero un numero)
         if (!random_number.includes(number)){
             controllo = true;
-
         };
-    } 
+    };
     return number;
 };
 
@@ -37,10 +36,10 @@ for (let i=0; i<5; i++){
 
 
 // setto la funzione temporale per far sparire i numeri NB PER TEST A 3 SECONDI DA CAMBIARE
-setTimeout(GameNumber, 30000);
-function GameNumber() {
-    printNumber.classList.add('none')  
-}
+setTimeout(gameNumber, 30000);
+function gameNumber() {
+    printNumber.classList.add('none'); 
+};
 
 // setto la funzione temporale per i prompt
 setTimeout(question, 31000);
@@ -48,62 +47,47 @@ setTimeout(question, 31000);
 
 function question(){
     // creo il secondo array vuoto
-    let report= document.querySelector('.answer')
-console.log(report)
-    let user_number = []
-    let versus = false
-    let numberFinder =''
-    let final_number= []
-        console.log(final_number)
+    let report= document.querySelector('.answer');
+    console.log(report);
+    let user_number = [];
+    let versus = false;
+    let final_number= [];
+    console.log(final_number);
     
    
     for (let i=0; i<5; i++){
-        let question = parseInt(prompt('Che numero hai visto?'))
-        console.log(question)
+        let question = parseInt(prompt('Che numero hai visto?'));
+        console.log(question);
         // riempio l'array con i numeri inseriti dall'utente
-        user_number.push(question)   
+        user_number.push(question);  
         //    creo una condizione per confrontare i due numeri
         if(random_number.includes(user_number[i])){
-            versus = true
-                numberFinder +=`<div> ${user_number[i]} </div>`
-                final_number.push(user_number[i])
-                console.log(numberFinder)
-                console.log(`hai indovinato il numero ${user_number[i]}`)
-                
-
+            versus = true;
+            final_number.push(user_number[i]);
+            console.log(`hai indovinato il numero ${user_number[i]}`);
         } else {
-                console.log('non hai indovinato')
-            }
-        }
+            console.log('non hai indovinato');
+            };
+    };
 
-        
+    if (versus === true) {
+        if(final_number.length > 1){
+            report.innerHTML = `Bravo! Ti sei ricordato ${final_number.length} numeri: ${final_number}!`;
+            console.log(final_number.length);
 
-        if (versus === true) {
-            if(final_number.length > 1){
-                report.innerHTML = `Bravo! Ti sei ricordato ${final_number.length} numeri: ${numberFinder}!`
-                console.log(final_number.length)
+        }else {
+            report.innerHTML = `Bravo! Ti sei ricordato un solo numero: ${final_number}!`;
+        };
+        // console.log (`Hai indovinato`);
+        // console.log(report)
 
-            }else {
-                report.innerHTML = `Bravo! Ti sei ricordato un solo numero: ${numberFinder}!`
-            }
-            // console.log (`Hai indovinato `);
-            //     console.log(report)
-  
-        } else {
-            report.innerHTML = 'Non ti sei ricordato nessun numero!'
-            
-        }
-        
-        
-
-           
-
-        console.log(user_number)
-  
-        console.log(random_number)
-
-
-}
+    } else {
+        report.innerHTML = 'Non ti sei ricordato nessun numero!';
+    };
+    
+    console.log(user_number);
+    console.log(random_number);
+};
 
 
 
